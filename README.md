@@ -8,7 +8,7 @@ This is a basic UI that displays representative info. Code was mostly copied fro
 
 ## Development Setup
 
-TODO
+Run `npm install` then `npm start` and navigate to the given URL on the console.
 
 ## Contributing
 
