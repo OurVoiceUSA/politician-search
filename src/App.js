@@ -52,7 +52,7 @@ export default class App extends PureComponent {
       this._whorepme({
         longitude: latLng.lng,
         latitude: latLng.lat,
-        address: this.state.address,
+        address: address,
       });
     } catch(error) {
       console.error('Error', error);
