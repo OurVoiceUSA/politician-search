@@ -43,22 +43,26 @@ export async function _getApiToken() {
 }
 
 export async function _apiCall(uri, input) {
-  var res;
-  var jwt;
-  var retry = false;
+  let res;
+  let jwt;
+  let retry = false;
 
   do {
     jwt = await _getApiToken();
 
-    res = await fetch(wsbase+uri, {
-      method: 'POST',
-      headers: {
-        'Authorization': 'Bearer '+jwt,
-        'Content-Type': 'application/json',
-        'User-Agent': _UserAgent(),
-      },
-      body: JSON.stringify(input),
-    });
+    try {
+      res = await fetch(wsbase+uri, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer '+jwt,
+          'Content-Type': 'application/json',
+          'User-Agent': _UserAgent(),
+        },
+        body: JSON.stringify(input),
+      });
+    } catch (e) {
+      res = {status: 500};
+    }
 
     if (res.status !== 200) {
       if (retry) break; // don't retry again
