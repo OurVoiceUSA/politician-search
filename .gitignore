@@ -61,5 +61,6 @@ fastlane/screenshots
 
 # server files
 *.log
+*.out
 build
 
