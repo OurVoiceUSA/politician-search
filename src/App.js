@@ -126,7 +126,11 @@ export default class App extends PureComponent {
 
         {apiData && !apiData.msg && !loading &&
         <View>
-          <Text>{JSON.stringify(apiData)}</Text>
+          <Text>{JSON.stringify(apiData.cd)}</Text>
+          <Text>{JSON.stringify(apiData.sen)}</Text>
+          <Text>{JSON.stringify(apiData.sldl)}</Text>
+          <Text>{JSON.stringify(apiData.sldu)}</Text>
+          <Text>{JSON.stringify(apiData.other)}</Text>
         </View>
         }
 
