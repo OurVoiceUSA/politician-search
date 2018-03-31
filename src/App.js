@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 
-import PlacesAutocomplete, { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+import PlacesAutocomplete from 'react-places-autocomplete';
 import { _apiCall } from './common';
 
 export default class App extends PureComponent {
@@ -21,42 +21,21 @@ export default class App extends PureComponent {
     this.onChange = (address) => this.setState({ address })
   }
 
-  _whorepme = async (position) => {
-
-    this.setState({
-      loading: true,
-    });
+  submitAddress = async (address) => {
+    this.setState({address, loading: true});
 
     let body = null;
     try {
-      let res = await _apiCall('/api/v1/whorepme?lng='+position.longitude+'&lat='+position.latitude, {address: position.address});
+      let res = await _apiCall('/api/v1/whorepme', {address: address});
       body = await res.json();
-    } catch (error) {
-      console.warn(error);
+    } catch(e) {
+      console.warn(e);
     }
 
     this.setState({
       loading: false,
       apiData: body,
     });
-
-  }
-
-  submitAddress = async (address) => {
-    this.setState({address});
-
-    try {
-      let results = await geocodeByAddress(address);
-      let latLng = await getLatLng(results[0]);
-
-      this._whorepme({
-        longitude: latLng.lng,
-        latitude: latLng.lat,
-        address: address,
-      });
-    } catch(error) {
-      console.error('Error', error);
-    }
 
   }
 
