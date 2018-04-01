@@ -136,13 +136,27 @@ export default class App extends PureComponent {
 
     return (
 
-      <View style={{flex: 1, margin: 10, maxWidth: 800, backgroundColor: 'white'}}>
+      <View style={{flex: 1, margin: 10, maxWidth: 900, backgroundColor: 'white'}}>
 
-        <View style={{flexDirection: 'row'}}>
-          <h1 style={{marginRight: 50}}>Politician Search</h1>
-          <div>Powered by <a href="https://ourvoiceusa.org">Our Voice USA <br />
-          <img style={{maxWidth: 150, resizeMode: 'center'}} src="https://ourvoiceusa.org/wp-content/uploads/2017/09/OV-fullcolor-logo-BluetypeAI.png" /></a>
-</div>
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <View style={{width: 300, alignItems: 'flex-start'}}>
+            <h1>Politician Search</h1>
+          </View>
+          <View style={{width: 300, alignItems: 'center'}}>
+            <a href="https://ourvoiceusa.org">
+              <img style={{maxWidth: 150, resizeMode: 'center'}} src="https://ourvoiceusa.org/wp-content/uploads/2017/09/OV-fullcolor-logo-BluetypeAI.png" />
+            </a>
+            <Text>This tool is powered by <a href="https://ourvoiceusa.org">Our Voice USA.</a></Text>
+          </View>
+          <View style={{width: 300, alignItems: 'center'}}>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+              <Text>This is a web version of our mobile app. Calling your representatives is just a few taps away!</Text>
+            </View>
+            <View style={{flexDirection: 'row', alignItems: 'center'}}>
+              <a href="https://play.google.com/store/apps/details?id=org.ourvoiceinitiative.ourvoice"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="58" width="150" /></a>
+              <a href="https://itunes.apple.com/us/app/our-voice-usa/id1275301651?ls=1&amp;mt=8"><img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" height="43" width="130" /></a>
+            </View>
+          </View>
         </View>
 
         <View style={{flexDirection: 'row'}}>
