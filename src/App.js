@@ -66,6 +66,35 @@ export default class App extends PureComponent {
     this.setState({apiData: null, searchByName: flag});
   }
 
+  displayPolitician(obj) {
+    return (
+      <View style={{margin: 10, padding: 10, borderWidth: 0.5}}>
+        <Text>{(obj.name?obj.name:'name is null ... id: '+obj.openstates_id)}</Text>
+      </View>
+    );
+  }
+
+  displayPoliticiansByAddress(apiData) {
+    return (
+      <View>
+        {apiData.cd.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+        {apiData.sen.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+        {apiData.sldl.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+        {apiData.sldu.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+        {apiData.other.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+      </View>
+    );
+  }
+
+  displayPoliticiansByOffice(obj) {
+    return (
+      <View>
+        <h3>{obj.name}</h3>
+        <Text>{obj.incumbents && obj.incumbents.map(obj => {return this.displayPolitician(obj)})}</Text>
+      </View>
+    );
+  }
+
   render() {
     const { loading, apiData } = this.state;
 
@@ -172,20 +201,10 @@ export default class App extends PureComponent {
         }
 
         {apiData && !apiData.msg && !loading && !this.state.searchByName &&
-        <View>
-          <Text>{JSON.stringify(apiData.cd)}</Text>
-          <Text>{JSON.stringify(apiData.sen)}</Text>
-          <Text>{JSON.stringify(apiData.sldl)}</Text>
-          <Text>{JSON.stringify(apiData.sldu)}</Text>
-          <Text>{JSON.stringify(apiData.other)}</Text>
-        </View>
-        }
+          this.displayPoliticiansByAddress(apiData)}
 
         {apiData && !apiData.msg && !loading && this.state.searchByName &&
-        <View>
-          <Text>{JSON.stringify(apiData)}</Text>
-        </View>
-        }
+          apiData.results.map(obj => {return this.displayPolitician(obj)})}
 
       </View>
     );
