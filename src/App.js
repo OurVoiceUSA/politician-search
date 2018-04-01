@@ -144,7 +144,7 @@ export default class App extends PureComponent {
           </View>
           <View style={{width: 300, alignItems: 'center'}}>
             <a href="https://ourvoiceusa.org">
-              <img style={{maxWidth: 150, resizeMode: 'center'}} src="https://ourvoiceusa.org/wp-content/uploads/2017/09/OV-fullcolor-logo-BluetypeAI.png" />
+              <img style={{maxWidth: 150, resizeMode: 'center'}} alt="Our Voice USA Logo" src="https://ourvoiceusa.org/wp-content/uploads/2017/09/OV-fullcolor-logo-BluetypeAI.png" />
             </a>
             <Text>This tool is powered by <a href="https://ourvoiceusa.org">Our Voice USA.</a></Text>
           </View>
@@ -153,8 +153,8 @@ export default class App extends PureComponent {
               <Text>This is a web version of our mobile app. Calling your representatives is just a few taps away!</Text>
             </View>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <a href="https://play.google.com/store/apps/details?id=org.ourvoiceinitiative.ourvoice"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="62" width="158" /></a>
-              <a href="https://itunes.apple.com/us/app/our-voice-usa/id1275301651?ls=1&amp;mt=8"><img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" height="43" width="130" /></a>
+              <a href="https://play.google.com/store/apps/details?id=org.ourvoiceinitiative.ourvoice"><img alt="Google Play Store" src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="62" width="158" /></a>
+              <a href="https://itunes.apple.com/us/app/our-voice-usa/id1275301651?ls=1&amp;mt=8"><img alt="Apple Store" src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" height="43" width="130" /></a>
             </View>
           </View>
         </View>
@@ -184,7 +184,8 @@ export default class App extends PureComponent {
           <Text style={{fontSize: 18, margin: 10}}>Enter a name, office, party, and/or location. (i.e.; "rick scott", "john congress utah", "colorado state house", "paul senate republican", "ca state senate 20", "wy state senate democrat", etc)</Text>
           <EnhancedInput onEnterKeyDown={this.submitSearch} />
         </View>
-        ||
+        }
+        {!this.state.searchByName &&
         <View>
           <Text style={{fontSize: 18, margin: 10}}>Enter a street, city, zip code, or state. For best results, enter a full address.</Text>
           <PlacesAutocomplete debounce={500} inputProps={inputProps} onEnterKeyDown={this.submitAddress} onSelect={this.submitAddress} />
@@ -197,7 +198,8 @@ export default class App extends PureComponent {
             <Text style={{fontSize: 18, textAlign: 'center', marginBottom: 10}}>
               {this.state.searchByName &&
               <Text>Loading search results.</Text>
-              ||
+              }
+              {!this.state.searchByName &&
               <Text>Loading district information.</Text>
               }
             </Text>
