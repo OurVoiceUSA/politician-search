@@ -110,6 +110,13 @@ export default class App extends PureComponent {
       <View style={{flex: 1, margin: 10, maxWidth: 800, backgroundColor: 'white'}}>
 
         <View style={{flexDirection: 'row'}}>
+          <h1 style={{marginRight: 50}}>Politician Search</h1>
+          <div>Powered by <a href="https://ourvoiceusa.org">Our Voice USA <br />
+          <img style={{maxWidth: 150, resizeMode: 'center'}} src="https://ourvoiceusa.org/wp-content/uploads/2017/09/OV-fullcolor-logo-BluetypeAI.png" /></a>
+</div>
+        </View>
+
+        <View style={{flexDirection: 'row'}}>
           <TouchableOpacity
             onPress={() => this.toggleSearch(false)}
             style={{
