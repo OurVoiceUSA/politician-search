@@ -136,7 +136,7 @@ export default class App extends PureComponent {
         </View>
         ||
         <View>
-          <Text style={{fontSize: 18, margin: 10}}>Enter an address</Text>
+          <Text style={{fontSize: 18, margin: 10}}>Enter a street, city, zip code, or state. For best results, enter a full address.</Text>
           <PlacesAutocomplete debounce={500} inputProps={inputProps} onEnterKeyDown={this.submitAddress} onSelect={this.submitAddress} />
         </View>
         }
