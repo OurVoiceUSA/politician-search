@@ -153,7 +153,7 @@ export default class App extends PureComponent {
               <Text>This is a web version of our mobile app. Calling your representatives is just a few taps away!</Text>
             </View>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-              <a href="https://play.google.com/store/apps/details?id=org.ourvoiceinitiative.ourvoice"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="58" width="150" /></a>
+              <a href="https://play.google.com/store/apps/details?id=org.ourvoiceinitiative.ourvoice"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="62" width="158" /></a>
               <a href="https://itunes.apple.com/us/app/our-voice-usa/id1275301651?ls=1&amp;mt=8"><img src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg" height="43" width="130" /></a>
             </View>
           </View>
