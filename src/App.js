@@ -147,6 +147,7 @@ export default class App extends PureComponent {
               <img style={{width: 150, resizeMode: 'center'}} alt="Our Voice USA Logo" src="https://ourvoiceusa.org/wp-content/uploads/2017/09/OV-fullcolor-logo-BluetypeAI.png" />
             </a>
             <Text>This tool is powered by <a href="https://ourvoiceusa.org">Our Voice USA.</a></Text>
+            <Text>Find the <a href="https://github.com/OurVoiceUSA/whorepme">source code here</a>.</Text>
           </View>
           <View style={{width: 300, alignItems: 'center'}}>
             <View style={{flex: 1, flexDirection: 'row'}}>
