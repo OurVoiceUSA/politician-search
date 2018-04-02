@@ -68,20 +68,46 @@ export default class App extends PureComponent {
 
   displayPolitician(obj) {
     return (
-      <View style={{margin: 10, padding: 10, borderWidth: 0.5}}>
-        <Text>{(obj.name?obj.name:'name is null ... id: '+obj.openstates_id)}</Text>
+      <View style={{flexDirection: 'row', margin: 10, padding: 10, borderWidth: 0.5}}>
+        <View style={{marginRight: 10}}>
+          <img style={{width: 150, resizeMode: 'center'}} alt="" src={(obj.photo_url?obj.photo_url:'https://ourvoiceusa.org/wp-content/uploads/2017/12/thinker-400x250.jpg')} />
+        </View>
+        <View>
+          <h2>{obj.name}</h2>
+          <h3>{obj.office}</h3>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={{margin: 10}}>{obj.phone}</Text>
+            <Text style={{margin: 10}}>{obj.email}</Text>
+            <Text style={{margin: 10}}>{obj.address}</Text>
+          </View>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={{margin: 10}}>{obj.facebook}</Text>
+            <Text style={{margin: 10}}>{obj.twitter}</Text>
+            <Text style={{margin: 10}}>{obj.youtube}</Text>
+          </View>
+        </View>
       </View>
     );
   }
 
   displayPoliticiansByAddress(apiData) {
     return (
+      <View style={{flex: 0}}>
       <View>
         {apiData.cd.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+      </View>
+      <View>
         {apiData.sen.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+      </View>
+      <View>
         {apiData.sldl.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+      </View>
+      <View>
         {apiData.sldu.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+      </View>
+      <View>
         {apiData.other.map(obj => {return this.displayPoliticiansByOffice(obj)})}
+      </View>
       </View>
     );
   }
@@ -90,7 +116,7 @@ export default class App extends PureComponent {
     return (
       <View>
         <h3>{obj.name}</h3>
-        <Text>{obj.incumbents && obj.incumbents.map(obj => {return this.displayPolitician(obj)})}</Text>
+        {obj.incumbents && obj.incumbents.map(obj => {return this.displayPolitician(obj)})}
       </View>
     );
   }
