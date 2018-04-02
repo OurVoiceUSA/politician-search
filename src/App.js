@@ -136,15 +136,15 @@ export default class App extends PureComponent {
 
     return (
 
-      <View style={{flex: 1, margin: 10, maxWidth: 900, backgroundColor: 'white'}}>
+      <View style={{flex: 1, margin: 10, width: 900, backgroundColor: 'white'}}>
 
         <View style={{flex: 1, flexDirection: 'row'}}>
-          <View style={{width: 300, alignItems: 'flex-start'}}>
+          <View style={{width: 300, alignItems: 'center'}}>
             <h1>Politician Search</h1>
           </View>
           <View style={{width: 300, alignItems: 'center'}}>
             <a href="https://ourvoiceusa.org">
-              <img style={{maxWidth: 150, resizeMode: 'center'}} alt="Our Voice USA Logo" src="https://ourvoiceusa.org/wp-content/uploads/2017/09/OV-fullcolor-logo-BluetypeAI.png" />
+              <img style={{width: 150, resizeMode: 'center'}} alt="Our Voice USA Logo" src="https://ourvoiceusa.org/wp-content/uploads/2017/09/OV-fullcolor-logo-BluetypeAI.png" />
             </a>
             <Text>This tool is powered by <a href="https://ourvoiceusa.org">Our Voice USA.</a></Text>
           </View>
@@ -164,7 +164,7 @@ export default class App extends PureComponent {
             onPress={() => this.toggleSearch(false)}
             style={{
               backgroundColor: (!this.state.searchByName?'#36C3E0':'#FFFFFF'),
-              padding: 10, borderColor: '#000000', borderWidth: 0.5, borderRadius: 20, maxWidth: 150, alignItems: 'center'
+              padding: 10, borderColor: '#000000', borderWidth: 0.5, borderRadius: 20, width: 150, alignItems: 'center'
             }}>
             <Text>Search by Address</Text>
           </TouchableOpacity>
@@ -173,7 +173,7 @@ export default class App extends PureComponent {
             onPress={() => this.toggleSearch(true)}
             style={{
               backgroundColor: (this.state.searchByName?'#36C3E0':'#FFFFFF'),
-              padding: 10, borderColor: '#000000', borderWidth: 0.5, borderRadius: 20, maxWidth: 150, alignItems: 'center'
+              padding: 10, borderColor: '#000000', borderWidth: 0.5, borderRadius: 20, width: 150, alignItems: 'center'
             }}>
             <Text>Search by Name</Text>
           </TouchableOpacity>
