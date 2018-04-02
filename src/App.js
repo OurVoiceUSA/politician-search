@@ -182,7 +182,9 @@ export default class App extends PureComponent {
         {this.state.searchByName &&
         <View>
           <Text style={{fontSize: 18, margin: 10}}>Enter a name, office, party, and/or location. (i.e.; "rick scott", "john congress utah", "colorado state house", "paul senate republican", "ca state senate 20", "wy state senate democrat", etc)</Text>
-          <EnhancedInput onEnterKeyDown={this.submitSearch} />
+          <EnhancedInput onEnterKeyDown={this.submitSearch}
+            style={{display: 'inline-block', width: '100%', padding: '10px'}}
+            />
         </View>
         }
         {!this.state.searchByName &&
