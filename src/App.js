@@ -141,6 +141,7 @@ export default class App extends PureComponent {
         <View style={{flex: 1, flexDirection: 'row'}}>
           <View style={{width: 300, alignItems: 'center'}}>
             <h1>Politician Search</h1>
+            <Text>Find out who represents you in public office, how to contact them, and other related information.</Text>
           </View>
           <View style={{width: 300, alignItems: 'center'}}>
             <a href="https://ourvoiceusa.org">
