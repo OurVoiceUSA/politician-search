@@ -74,7 +74,7 @@ export default class App extends PureComponent {
         </View>
         <View>
           <h2>{obj.name}</h2>
-          <h3>{obj.office}</h3>
+          <h3>{obj.divisionName}</h3>
           <View style={{flexDirection: 'row'}}>
             <Text style={{margin: 10}}>{obj.phone}</Text>
             <Text style={{margin: 10}}>{obj.email}</Text>
@@ -84,6 +84,9 @@ export default class App extends PureComponent {
             <Text style={{margin: 10}}>{obj.facebook}</Text>
             <Text style={{margin: 10}}>{obj.twitter}</Text>
             <Text style={{margin: 10}}>{obj.youtube}</Text>
+          </View>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={{margin: 10}}>{JSON.stringify(obj.data_sources)}</Text>
           </View>
         </View>
       </View>
