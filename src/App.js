@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import PlacesAutocomplete from 'react-places-autocomplete';
+import Icon from 'react-fontawesome';
 import onEnter from 'react-onenterkeydown';
 import { _apiCall } from './common';
 
@@ -81,15 +82,25 @@ export default class App extends PureComponent {
             <Text style={{margin: 10}}>{obj.address}</Text>
           </View>
           <View style={{flexDirection: 'row'}}>
-            <Text style={{margin: 10}}>{obj.facebook}</Text>
-            <Text style={{margin: 10}}>{obj.twitter}</Text>
-            <Text style={{margin: 10}}>{obj.youtube}</Text>
+            {this.linkSM(obj, 'phone', 'phone-square', '#5BC236')}
+            {this.linkSM(obj, 'email', 'envelope-square', '#0076ff')}
+            {this.linkSM(obj, 'facebook', 'facebook', '#3b5998')}
+            {this.linkSM(obj, 'twitter', 'twitter', '#0084b4')}
+            {this.linkSM(obj, 'youtube', 'youtube-play', '#ff0000')}
+            {this.linkSM(obj, 'wikipedia_id', 'wikipedia-w', '#000000')}
+            {this.linkSM(obj, 'url', 'globe', '#008080')}
           </View>
           <View style={{flexDirection: 'row'}}>
             <Text style={{margin: 10}}>{JSON.stringify(obj.data_sources)}</Text>
           </View>
         </View>
       </View>
+    );
+  }
+
+  linkSM(obj, sm, icon, color) {
+    return (
+      <Icon name={icon} size='2x' style={{margin: 10, color: (obj[sm] ? color : '#e3e3e3')}} />
     );
   }
 
