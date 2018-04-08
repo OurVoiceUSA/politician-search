@@ -75,7 +75,7 @@ export default class App extends PureComponent {
         </View>
         <View style={{width: 425}}>
           <h2>{obj.name}</h2>
-          <h3>{obj.office}, {obj.divisionName}</h3>
+          <h3>{(obj.office?obj.office+', ':'')+obj.divisionName}</h3>
           <View style={{flex: 1}}>
             <Text>
               {this._partyNameFromKey(obj.party)}
@@ -315,8 +315,9 @@ export default class App extends PureComponent {
         <View style={{flex: 1, margin: 20}}>
           <Text>
             NOTE: Information displayed here is indexed from external sources. We do not warrant
-            or guarantee its accuracy or completeness. For any corrections, please contact
-            the source of the data listed with each record.
+            or guarantee its accuracy or completeness. Each person listed either holds, previously
+            held, or is running for public office. For any corrections, contact the data source
+            listed with the record.
           </Text>
         </View>
         }
