@@ -108,13 +108,13 @@ export default class App extends PureComponent {
 
           </View>
           <View style={{flexDirection: 'row'}}>
-            {this.linkSM(obj, 'phone', 'phone-square', '#5BC236')}
-            {this.linkSM(obj, 'email', 'envelope-square', '#0076ff')}
-            {this.linkSM(obj, 'facebook', 'facebook', '#3b5998')}
-            {this.linkSM(obj, 'twitter', 'twitter', '#0084b4')}
-            {this.linkSM(obj, 'youtube', 'youtube-play', '#ff0000')}
-            {this.linkSM(obj, 'wikipedia_id', 'wikipedia-w', '#000000')}
-            {this.linkSM(obj, 'url', 'globe', '#008080')}
+            {this.linkSM(obj, 'phone', 'phone-square', '#5BC236', 'tel:')}
+            {this.linkSM(obj, 'email', 'envelope-square', '#0076ff', 'mailto:')}
+            {this.linkSM(obj, 'facebook', 'facebook', '#3b5998', 'https://www.facebook.com/')}
+            {this.linkSM(obj, 'twitter', 'twitter', '#0084b4', 'https://twitter.com/')}
+            {this.linkSM(obj, 'youtube', 'youtube-play', '#ff0000', 'https://www.youtube.com/channel/')}
+            {this.linkSM(obj, 'wikipedia_id', 'wikipedia-w', '#000000', 'https://en.wikipedia.org/wiki/')}
+            {this.linkSM(obj, 'url', 'globe', '#008080', '')}
           </View>
         </View>
         <View>
@@ -145,9 +145,19 @@ export default class App extends PureComponent {
     );
   }
 
-  linkSM(obj, sm, icon, color) {
+  linkSM(obj, sm, icon, color, href_prefix) {
+    if (!obj[sm]) return (
+      <View>
+          <Icon name={icon} size='2x' style={{margin: 10, color: (obj[sm] ? color : '#e3e3e3')}} />
+      </View>
+    );
+ 
     return (
-      <Icon name={icon} size='2x' style={{margin: 10, color: (obj[sm] ? color : '#e3e3e3')}} />
+      <View>
+        <a href={(obj[sm]?href_prefix+obj[sm]:'#')} target={(sm!=='phone'?'_blank':'')}>
+          <Icon name={icon} size='2x' style={{margin: 10, color: (obj[sm] ? color : '#e3e3e3')}} />
+        </a>
+      </View>
     );
   }
 
