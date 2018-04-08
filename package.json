@@ -1,8 +1,8 @@
 {
-  "name": "canvassing-import",
+  "name": "politician-search",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/whorepme",
+  "homepage": "/politician-search",
   "dependencies": {
     "jwt-decode": "^2.2.0",
     "react": "^16.2.0",
