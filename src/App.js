@@ -294,6 +294,16 @@ export default class App extends PureComponent {
         </View>
         }
 
+        {apiData && !apiData.msg && !loading &&
+        <View style={{flex: 1, margin: 20}}>
+          <Text>
+            NOTE: Information displayed here is indexed from external sources. We do not warrant
+            or guarantee its accuracy or completeness. For any corrections, please contact
+            the source of the data listed with each record.
+          </Text>
+        </View>
+        }
+
         {loading &&
         <View style={{flex: 1}}>
           <View style={{flex: 1, margin: 10, justifyContent: 'center', alignItems: 'center'}}>
