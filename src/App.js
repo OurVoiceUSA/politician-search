@@ -184,6 +184,13 @@ export default class App extends PureComponent {
     );
   }
 
+  displayPoliticiansBySearch(apiData) {
+    if (!apiData.results || apiData.results.length == 0)
+      return (<Text>No results found for your query.</Text>);
+
+    return apiData.results.map(obj => {return this.displayPolitician(obj)});
+  }
+
   displayPoliticiansByOffice(obj) {
     return (
       <View>
@@ -332,7 +339,7 @@ export default class App extends PureComponent {
           this.displayPoliticiansByAddress(apiData)}
 
         {apiData && !apiData.msg && !loading && this.state.searchByName &&
-          apiData.results.map(obj => {return this.displayPolitician(obj)})}
+          this.displayPoliticiansBySearch(apiData)}
 
       </View>
     );
