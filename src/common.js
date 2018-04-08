@@ -21,7 +21,7 @@ export function _partyNameFromKey(party) {
 }
 
 function _UserAgent() {
-  return 'OurVoiceWeb/1.0 (UNKNOWN UNKNOWN)';
+  return 'OurVoiceWeb/1.0 (React.js fetch)';
 }
 
 export async function _getApiToken() {
@@ -34,7 +34,7 @@ export async function _getApiToken() {
         'Content-Type': 'application/json',
         'User-Agent': _UserAgent(),
       },
-      body: JSON.stringify({apiKey: 'ABCDEFGHIJKLMNOP'})
+      body: JSON.stringify({apiKey: 'OURVOICEUSAWEBAPP'})
     });
     jwt = JSON.parse(await res.text()).jwt;
     _saveJWT(jwt);
