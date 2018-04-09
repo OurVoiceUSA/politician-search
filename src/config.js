@@ -1,3 +1,3 @@
 
-export const wsbase = 'https://wsdev.ourvoiceusa.org';
+export const wsbase = 'https://ws.ourvoiceusa.org';
 
