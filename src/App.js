@@ -200,9 +200,37 @@ export default class App extends PureComponent {
   }
 
   displayPaginate(pages) {
+    let items = [];
+
+    if (this.state.page > 1)
+      items.push(
+        <TouchableOpacity
+            onPress={() => this.setState({page: this.state.page-1})}
+            style={{
+              padding: 5, borderColor: '#000000', borderWidth: 0.5, borderRadius: 20, width: 75, alignItems: 'center'
+            }}>
+          <Text> BACK </Text>
+        </TouchableOpacity>
+      );
+
+    items.push(
+        <Text style={{margin: 5}}>Page {this.state.page} of {pages}</Text>
+    );
+
+    if (this.state.page < pages)
+      items.push(
+        <TouchableOpacity
+            onPress={() => this.setState({page: this.state.page+1})}
+            style={{
+              padding: 5, borderColor: '#000000', borderWidth: 0.5, borderRadius: 20, width: 75, alignItems: 'center'
+            }}>
+          <Text> NEXT </Text>
+        </TouchableOpacity>
+      );
+
     return (
-      <View>
-        <Text>Page {this.state.page} of {pages}</Text>
+      <View style={{flexDirection: 'row'}}>
+        { items }
       </View>
     );
   }
