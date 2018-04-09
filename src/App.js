@@ -19,9 +19,9 @@ export default class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1,
       loading: false,
       apiData: null,
+      str: null,
       address: '',
       searchByName: false,
     };
@@ -47,11 +47,18 @@ export default class App extends PureComponent {
   }
 
   submitSearch = async (e) => {
-    this.setState({loading: true});
+    await this.doSearchByName(e.target.value, 1);
+  }
+
+  doSearchByName = async (str, page) => {
+    this.setState({
+      loading: true,
+      str: str,
+    });
 
     let body = null;
     try {
-      let res = await _apiCall('/api/v1/search?str='+e.target.value);
+      let res = await _apiCall('/api/v1/search?str='+str+'&page='+page);
       body = await res.json();
     } catch(e) {
       console.warn(e);
@@ -60,6 +67,7 @@ export default class App extends PureComponent {
     this.setState({
       loading: false,
       apiData: body,
+      page: page,
     });
 
   }
@@ -199,13 +207,17 @@ export default class App extends PureComponent {
     );
   }
 
+  renderPage(dir) {
+    this.doSearchByName(this.state.str, this.state.page+dir);
+  }
+
   displayPaginate(pages) {
     let items = [];
 
     if (this.state.page > 1)
       items.push(
         <TouchableOpacity
-            onPress={() => this.setState({page: this.state.page-1})}
+            onPress={() => this.renderPage(-1)}
             style={{
               padding: 5, borderColor: '#000000', borderWidth: 0.5, borderRadius: 20, width: 75, alignItems: 'center'
             }}>
@@ -220,7 +232,7 @@ export default class App extends PureComponent {
     if (this.state.page < pages)
       items.push(
         <TouchableOpacity
-            onPress={() => this.setState({page: this.state.page+1})}
+            onPress={() => this.renderPage(1)}
             style={{
               padding: 5, borderColor: '#000000', borderWidth: 0.5, borderRadius: 20, width: 75, alignItems: 'center'
             }}>
