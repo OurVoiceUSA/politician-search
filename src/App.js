@@ -19,6 +19,7 @@ export default class App extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      page: 1,
       loading: false,
       apiData: null,
       address: '',
@@ -196,11 +197,37 @@ export default class App extends PureComponent {
     );
   }
 
+  displayPaginate(pages) {
+    return (
+      <View>
+        <Text>Page {this.state.page} of {pages}</Text>
+      </View>
+    );
+  }
+
   displayPoliticiansBySearch(apiData) {
     if (!apiData.results || apiData.results.length === 0)
       return (<Text>No results found for your query.</Text>);
 
-    return apiData.results.map(obj => {return this.displayPolitician(obj)});
+    let items = [];
+
+    items.push(
+      this.displayPaginate(apiData.pages)
+    );
+
+    items.push(
+      apiData.results.map(obj => {return this.displayPolitician(obj)})
+    );
+
+    items.push(
+      this.displayPaginate(apiData.pages)
+    );
+
+    return (
+      <View>
+        { items }
+      </View>
+    );
   }
 
   displayPoliticiansByOffice(obj) {
