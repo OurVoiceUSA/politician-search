@@ -118,6 +118,8 @@ export default class App extends PureComponent {
           </View>
         </View>
         <View>
+          <Text style={{margin: 10, marginLeft: 0}}>External Links:</Text>
+          {this.displayDataSources(obj.external_links)}
           <Text style={{margin: 10, marginLeft: 0}}>Data Sources for this record:</Text>
           {this.displayDataSources(obj.data_sources)}
         </View>
