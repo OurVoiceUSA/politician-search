@@ -131,6 +131,8 @@ export default class App extends PureComponent {
   displayDataSources(refs) {
     let items = [];
 
+    if (refs.length === 0) return (<Text>N/A</Text>);
+
     for (let r in refs) {
       let ref = refs[r];
 
