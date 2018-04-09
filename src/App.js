@@ -113,7 +113,7 @@ export default class App extends PureComponent {
             {this.linkSM(obj, 'facebook', 'facebook', '#3b5998', 'https://www.facebook.com/')}
             {this.linkSM(obj, 'twitter', 'twitter', '#0084b4', 'https://twitter.com/')}
             {this.linkSM(obj, 'youtube', 'youtube-play', '#ff0000', 'https://www.youtube.com/channel/')}
-            {this.linkSM(obj, 'wikipedia_id', 'wikipedia-w', '#000000', 'https://en.wikipedia.org/wiki/')}
+            {this.linkSM(obj, 'wikipedia', 'wikipedia-w', '#000000', 'https://en.wikipedia.org/wiki/')}
             {this.linkSM(obj, 'url', 'globe', '#008080', '')}
           </View>
         </View>
