@@ -195,7 +195,7 @@ export default class App extends PureComponent {
   }
 
   displayPoliticiansBySearch(apiData) {
-    if (!apiData.results || apiData.results.length == 0)
+    if (!apiData.results || apiData.results.length === 0)
       return (<Text>No results found for your query.</Text>);
 
     return apiData.results.map(obj => {return this.displayPolitician(obj)});
