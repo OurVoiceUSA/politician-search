@@ -4,7 +4,9 @@ Our Voice Initiative is a 501(c)(4) non-profit, non-partisian organization for c
 
 ## Features
 
-This is a basic UI to search for politicians based on address or name using the `civic-broker` API.
+This is a basic UI to search for politicians based on address or name using the `civic-broker` API. It's deployed to this URL:
+
+https://apps.ourvoiceusa.org/politician-search/
 
 ## Development Setup
 
