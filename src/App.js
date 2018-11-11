@@ -146,7 +146,7 @@ export default class App extends PureComponent {
 
       items.push(
         <View key={r}>
-          <Text><a href={ref.url} target="_blank">{ref.name}</a>{(ref.id?' ('+ref.id+')':'')}</Text>
+          <Text><a href={ref.url} target="_blank" rel="noopener noreferrer">{ref.name}</a>{(ref.id?' ('+ref.id+')':'')}</Text>
         </View>
       );
     }
